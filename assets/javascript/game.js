@@ -2,22 +2,16 @@
 //====================================================
 
 // Starts everything at 0. 
-var wins, currentWord, guesses, lettersGuessed = 0;
-
-// The words to guess.
-var words = {
-    w1: ["cat"],
-    w2: ["rat"],
-    w3: ["dog"]
-};
-// Array of words.
-var wordArray = [words.w1, words.w2, words.w3];
-console.log(wordArray)
-
-
-
-
+var wins = 0;
+var currentWord = 0;
 var remainingGuesses = 12;
+var guesses = 0;
+var lettersGuessed = 0;
+
+// array of words
+var words = ["cat", "rat", "dog"
+};
+
 
 
 // FUNCTIONS
@@ -25,32 +19,15 @@ var remainingGuesses = 12;
 
 // Function to render words.
 function renderWord() {
-    // If there are still more words render next one.
-    if (currentWord <= (wordArray.length - 1)) {
-        document.querySelector("#word") = wordArray[currentWord][0];
-    }
-    // If there aren't, render end game screen.
-    else {
-        document.querySelector("#word") = "Game Over!"
-        document.querySelector("#wins") = "Final Score: " + wins + " out of " + wordArray.length;
-        console.log(currentWord)
-        console.log(wins)
-    }
+    this.complete = false;
+    this.word = words[Math.floor(Math.random() * words.length)];
+    this.$correct = document.getElementById('correct');
+    this.$wrong = document.getElementById('wrong');
+    this.$remaining = document.getElementById('remaining');
+    this.$right.innerHTML = '_'.repeat(this.word.length);
 }
-
 // Function that updates the wins.
 function updateWins() {
-    document.querySelector("#wins") = "#wins: " + wins;
-    console.log(updateWins)
+    document.getElementById("wins") = "wins: " + wins;
+
 }
-
-
-
-
-
-
-
-
-
-
-
