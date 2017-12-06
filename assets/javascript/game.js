@@ -1,14 +1,12 @@
 // VARIABLES
 //====================================================
 
-// // Starts everything at 0. 
+// // Starts wins at 0. 
 var wins = 0;
-// var currentWord = 0;
-// var remainingGuesses = 12;
-// var guesses = 0;
-// var lettersGuessed = [];
+var pic = [];
+var updateWins = 0;
 // array of words
-var words = ["cat", "rat", "dog"];
+var words = ["elephant", "rhino", "dog"];
 
 
 
@@ -28,16 +26,30 @@ var game = {
         this.$wrong = document.getElementById('wrong');
         this.$remaining = document.getElementById('remaining');
         this.$correct.innerHTML = '_'.repeat(this.word.length);
-        // console.log(renderWord);
-        // console.log(guess);
-        // console.log(correct);
-        // console.log(wrong);
     },
 
-    // Function that updates wins.
-    updateWins: function() {
-    	this.$wins = document.getElementById("wins");
-    },
+    // // Function that updates wins?????.
+    // updateWins: function() {
+    //     for (var i = 0; i < words.length; i++);
+    //     updateWins += 'Wins: ' + wins;
+    // updateWins = document.getElementById("wins");
+
+    // document.onkeyup = function(event) {
+    // 	updateWins.textContent = event.key;
+    // };
+
+
+    // var el = document.getElementById('wins');
+    // el.innerHTML = updateWins;
+
+
+    // if (this.$wins.innerHTML.indexOf('_') < 0) {
+    //        return("updateWins");
+    //        this.complete = true;
+    //    }
+    // console.log(updateWins);
+    // },
+
 
 
     // Function for letters guessed.
@@ -66,7 +78,24 @@ var game = {
             this.complete = true;
 
         }
+        // Images to render.
+        if (words.indexOf()) {
+            var el = document.getElementById('pic');
+            el.innerHTML = pic;
+            game.winPic();
+        }
+
     },
+    // function for Rhino image.
+    winPic: function() {
+        var x = document.getElementById("pic");
+        x.setAttribute("src", "assets/images/rhino.jpg");
+        x.setAttribute("width", "180");
+        x.setAttribute("height", "150");
+        x.setAttribute("alt", "Rhino");
+        document.body.appendChild(x);
+    },
+
 
     //Function for the wrong answer.
     wrong: function(letter) {
@@ -81,7 +110,9 @@ var game = {
     }
 
 };
-game.updateWins();
+//for wins function
+// game.updateWins();
+// Initialize Game 
 game.renderWord();
 document.onkeyup = function(event) {
     var letter = String.fromCharCode(event.keyCode).toLowerCase();
